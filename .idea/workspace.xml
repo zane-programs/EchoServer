@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a5d2d452-2a5b-4a4f-b522-2d30506aae63" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EchoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EchoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EchoServer.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,11 +55,23 @@
       <recent name="$PROJECT_DIR$/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EchoClient with args">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.EchoServer with args">
     <configuration name="EchoClient with args" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="EchoClient" />
       <module name="EchoServer" />
-      <option name="PROGRAM_PARAMETERS" value="-h" />
+      <option name="PROGRAM_PARAMETERS" value="-s 127.0.0.1 -p 3000 -r /test/path/here/lollz" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -71,7 +86,7 @@
     <configuration name="EchoServer with args" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="EchoServer" />
       <module name="EchoServer" />
-      <option name="PROGRAM_PARAMETERS" value="-h" />
+      <option name="PROGRAM_PARAMETERS" value="-p 3000" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,18 +116,6 @@
       <item itemvalue="Compound.Echo Server/Client" />
     </list>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -133,6 +136,17 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Solution complete" />

@@ -78,10 +78,14 @@ public class EchoServer {
 
                 // TODO: STUDENT WORK
                 // parse request message and create response
-
-
-
-
+                String[] parsedRequest = request.split(" ");
+                if (parsedRequest.length == 2 && parsedRequest[0].equals("GET") && parsedRequest[1].charAt(0) == '/') {
+                    // valid request
+                    response = String.format("You requested %s", parsedRequest[1]);
+                } else {
+                    // INVALID response
+                    response = "INVALID";
+                }
                 // END STUDENT WORK
 
                 // send response

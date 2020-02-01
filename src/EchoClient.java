@@ -100,7 +100,7 @@ public class EchoClient {
             // TODO: STUDENT WORK
             // create the request from the path extracted from args
 
-
+            request = String.format("GET %s", requestPath);
 
             // END STUDENT WORK
 
