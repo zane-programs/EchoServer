@@ -1,16 +1,48 @@
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Arrays;
 import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * Represents a server that accepts connections from EchoClients
  * and processes requests.
  */
 public class EchoServer {
+    private static String readFile(String path) {
+        try {
+            StringBuilder fileContents = new StringBuilder(); // file contents dumped here
+
+            File file = new File(path);
+            Scanner fileReader = new Scanner(file);
+            while (fileReader.hasNextLine()) {
+                String line = fileReader.nextLine();
+                fileContents.append(line).append("\n");
+            }
+
+            return fileContents.toString();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return "File Not Found";
+        }
+    }
+
+    private static String parseRequestBody(String body) {
+        // this method parses VALID requests, as the main method handles the rest ;)
+        String response;
+        int bodyTxtExtPosition = body.indexOf(".txt");
+        if (bodyTxtExtPosition != -1 && body.substring(bodyTxtExtPosition).equals(".txt")) { // temp
+            response = readFile("../resources/server" + body);
+        } else {
+            // normal response
+            response = String.format("You requested %s", body);
+        }
+        return response;
+    }
+
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
         int port = 8080;
@@ -67,6 +99,7 @@ public class EchoServer {
         while (true) {
             try {
                 // accept client connection
+                assert serverSocket != null; // Added at the suggestion of the IDE (IntelliJ IDEA)
                 socket = serverSocket.accept();
 
                 // setup input and output streams
@@ -79,9 +112,11 @@ public class EchoServer {
                 // TODO: STUDENT WORK
                 // parse request message and create response
                 String[] parsedRequest = request.split(" ");
-                if (parsedRequest.length == 2 && parsedRequest[0].equals("GET") && parsedRequest[1].charAt(0) == '/') {
+                String preamble = parsedRequest[0];
+                String requestBody = parsedRequest[1];
+                if (parsedRequest.length == 2 && preamble.equals("GET") && requestBody.charAt(0) == '/') {
                     // valid request
-                    response = String.format("You requested %s", parsedRequest[1]);
+                    response = parseRequestBody(requestBody);
                 } else {
                     // INVALID response
                     response = "INVALID";
@@ -90,7 +125,6 @@ public class EchoServer {
 
                 // send response
                 output.writeObject(response);
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
