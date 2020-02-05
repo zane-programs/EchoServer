@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class EchoServer {
     private static String readFile(String path) {
+        // file reading help thanks to https://www.w3schools.com/java/java_files_read.asp
         try {
             StringBuilder fileContents = new StringBuilder(); // file contents dumped here
 
@@ -23,7 +24,7 @@ public class EchoServer {
                 fileContents.append(line).append("\n");
             }
 
-            return fileContents.toString();
+            return fileContents.toString().trim();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return "File Not Found";
