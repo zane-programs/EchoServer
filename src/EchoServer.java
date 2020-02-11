@@ -115,7 +115,7 @@ public class EchoServer {
                 String[] parsedRequest = request.split(" ");
                 String preamble = parsedRequest[0];
                 String requestBody = parsedRequest[1];
-                if (parsedRequest.length == 2 && preamble.equals("GET") && requestBody.charAt(0) == '/') {
+                if (parsedRequest.length == 2 && preamble.equals("GET") && requestBody.charAt(0) == '/' && requestBody.charAt(1) != '/') {
                     // valid request
                     response = parseRequestBody(requestBody);
                 } else {

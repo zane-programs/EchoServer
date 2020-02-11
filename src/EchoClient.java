@@ -65,6 +65,8 @@ public class EchoClient {
         else if (argsList.contains("-r")) {
             requestPath = argsList.get(argsList.indexOf("-r")+1);
         }
+        // ZANE MODIFIED: request argument CAN be missing a slash. The client fixes this for them.
+        if (requestPath.charAt(0) != '/') requestPath = '/' + requestPath;
 
         // args are valid and form a request
         System.out.println("Client requesting " + requestPath);
@@ -99,7 +101,6 @@ public class EchoClient {
         try {
             // TODO: STUDENT WORK
             // create the request from the path extracted from args
-
             request = String.format("GET %s", requestPath);
 
             // END STUDENT WORK
@@ -125,7 +126,7 @@ public class EchoClient {
                 "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" +
                 "\nEchoClient \n\tRepresents a client that connects to an EchoServer and sends requests." +
                 "\n\nOptions:" +
-                        "\n\t-s, --server: Specify the server to contact." +
+                        "\n\t-s, --server : Specify the server to contact." +
                         "\n\t-p, --port : Specify the server's port for establishing a connection." +
                         "\n\t-r, --request : Specify the resource you wish to request." +
                         "\n\t-h, --help : Print this message." +
