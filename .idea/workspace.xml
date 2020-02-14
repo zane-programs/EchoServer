@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5d2d452-2a5b-4a4f-b522-2d30506aae63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a5d2d452-2a5b-4a4f-b522-2d30506aae63" name="Default Changelist" comment="Merge branch 'master' of https://github.com/atotty/EchoServer&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change afterPath="$PROJECT_DIR$/src/TestMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EchoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EchoClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EchoServer.java" afterDir="false" />
-=======
->>>>>>> 3e55063a385fd2568ca2a7089d07fcb44df85940
+      <change beforePath="$PROJECT_DIR$/student_readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/student_readme.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EchoServer with args">
+  <component name="RunManager" selected="Application.TestMethods">
     <configuration name="EchoClient with args" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="EchoClient" />
       <module name="EchoServer" />
@@ -102,6 +100,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestMethods" />
+      <module name="EchoServer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Echo Server/Client" type="CompoundRunConfigurationType">
       <toRun name="EchoClient GET" type="Application" />
       <toRun name="EchoServer" type="Application" />
@@ -118,7 +123,13 @@
       <item itemvalue="Application.EchoServer" />
       <item itemvalue="Application.EchoServer with args" />
       <item itemvalue="Compound.Echo Server/Client" />
+      <item itemvalue="Application.TestMethods" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestMethods" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -153,7 +164,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

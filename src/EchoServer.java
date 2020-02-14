@@ -26,10 +26,56 @@ public class EchoServer {
 
             return fileContents.toString().trim();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // debug
             return "File Not Found";
         }
     }
+
+    private static boolean bodyHasNoConsecutiveForwardSlashes(String requestBody) {
+        boolean valueToReturn = true;
+        for (int i = 0; i < requestBody.length() - 1; i++) {
+            if (requestBody.charAt(i) == '/' && requestBody.charAt(i + 1) == '/') {
+                valueToReturn = false;
+                break;
+            }
+        }
+        return valueToReturn;
+    }
+
+    private static boolean bodyHasOnlyBackslashedSpaces(String requestBody) {
+        boolean valueToReturn = true;
+        for (int i = 1; i < requestBody.length(); i++) {
+            if (requestBody.charAt(i) == ' ') {
+                if (requestBody.charAt(i - 1) != '\\') {
+                    valueToReturn = false;
+                    break;
+                }
+            }
+        }
+        return valueToReturn;
+    }
+
+//    private static boolean bodyHasOnlyBackslashedSpaces(String requestBody) {
+//        int numSpaces = requestBody.split(" ").length - 1; // number of spaces to iterate through
+//        int spaceStartIndex = 0;
+//        boolean valueToReturn = true;
+//        for (int i = 0; i < numSpaces; i++) {
+//            int currentSpaceIndex = requestBody.indexOf(" ", spaceStartIndex);
+//            if (currentSpaceIndex == 0) {
+//                valueToReturn = false;
+//                break;
+//            } else {
+//                int spacePos = requestBody.indexOf(' ', spaceStartIndex);
+//                if (requestBody.charAt(spacePos - 1) != '\\') {
+//                    valueToReturn = false;
+//                    break;
+//                } else {
+//                    spaceStartIndex = spacePos + 1;
+//                }
+//            }
+//        }
+//        return valueToReturn;
+//    }
 
     private static String parseRequestBody(String body) {
         // this method parses VALID requests, as the main method handles the rest ;)
@@ -79,7 +125,7 @@ public class EchoServer {
             port = Integer.parseInt(argsList.get(argsList.indexOf("--port")+1));
         }
         else if (argsList.contains("-p")) {
-            port = Integer.parseInt(argsList.get(argsList.indexOf("-p")+1));
+            port = Integer.parseInt(argsList.get(argsList.indexOf("-p") + 1));
         }
 
 
@@ -92,6 +138,7 @@ public class EchoServer {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
             e.printStackTrace();
+            return;
         }
 
         System.out.println("Server listening on port " + port);
@@ -100,7 +147,6 @@ public class EchoServer {
         while (true) {
             try {
                 // accept client connection
-                assert serverSocket != null; // Added at the suggestion of the IDE (IntelliJ IDEA)
                 socket = serverSocket.accept();
 
                 // setup input and output streams
@@ -112,16 +158,26 @@ public class EchoServer {
 
                 // TODO: STUDENT WORK
                 // parse request message and create response
-                String[] parsedRequest = request.split(" ");
-                String preamble = parsedRequest[0];
-                String requestBody = parsedRequest[1];
-                if (parsedRequest.length == 2 && preamble.equals("GET") && requestBody.charAt(0) == '/' && requestBody.charAt(1) != '/') {
-                    // valid request
-                    response = parseRequestBody(requestBody);
-                } else {
-                    // INVALID response
-                    response = "INVALID";
-                }
+                // LIMIT split to first occurrence thanks to https://stackoverflow.com/a/18462905
+                try {
+                    String[] parsedRequest = request.split(" ", 2);
+                    String preamble = parsedRequest[0];
+                    String requestBody = parsedRequest[1];
+                    if (parsedRequest.length == 2
+                            && preamble.equals("GET")
+                            && requestBody.charAt(0) == '/'
+//                            && requestBody.charAt(1) != '/'
+                            && bodyHasNoConsecutiveForwardSlashes(requestBody)
+                            && bodyHasOnlyBackslashedSpaces(requestBody)) {
+                        // valid request
+                        response = parseRequestBody(requestBody);
+                    } else {
+                        // INVALID response
+                        response = "INVALID";
+                    }
+                } catch (ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException e) { // catch block made more
+                    response = "INVALID";                                                      // concise automatically
+                }                                                                              // by the IDE (IntelliJ)
                 // END STUDENT WORK
 
                 // send response
