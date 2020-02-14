@@ -14,7 +14,7 @@ public class EchoClient {
         // file writing made possible thanks to https://stackoverflow.com/a/2885224
         try {
             PrintWriter fileWriter = new PrintWriter(fileName, "UTF-8");
-            fileWriter.print(fileText);
+            fileWriter.println(fileText);
             fileWriter.close();
         } catch (IOException e) {
             System.out.print("ERROR: Could not save to file");
