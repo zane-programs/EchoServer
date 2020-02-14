@@ -31,6 +31,7 @@ public class EchoServer {
         }
     }
 
+    // method name speaks for itself
     private static boolean bodyHasNoConsecutiveForwardSlashes(String requestBody) {
         boolean valueToReturn = true;
         for (int i = 0; i < requestBody.length() - 1; i++) {
@@ -42,6 +43,7 @@ public class EchoServer {
         return valueToReturn;
     }
 
+    // method name speaks for itself
     private static boolean bodyHasOnlyBackslashedSpaces(String requestBody) {
         boolean valueToReturn = true;
         for (int i = 1; i < requestBody.length(); i++) {
@@ -54,28 +56,6 @@ public class EchoServer {
         }
         return valueToReturn;
     }
-
-//    private static boolean bodyHasOnlyBackslashedSpaces(String requestBody) {
-//        int numSpaces = requestBody.split(" ").length - 1; // number of spaces to iterate through
-//        int spaceStartIndex = 0;
-//        boolean valueToReturn = true;
-//        for (int i = 0; i < numSpaces; i++) {
-//            int currentSpaceIndex = requestBody.indexOf(" ", spaceStartIndex);
-//            if (currentSpaceIndex == 0) {
-//                valueToReturn = false;
-//                break;
-//            } else {
-//                int spacePos = requestBody.indexOf(' ', spaceStartIndex);
-//                if (requestBody.charAt(spacePos - 1) != '\\') {
-//                    valueToReturn = false;
-//                    break;
-//                } else {
-//                    spaceStartIndex = spacePos + 1;
-//                }
-//            }
-//        }
-//        return valueToReturn;
-//    }
 
     private static String parseRequestBody(String body) {
         // this method parses VALID requests, as the main method handles the rest ;)

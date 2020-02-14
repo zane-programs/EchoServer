@@ -137,8 +137,6 @@ public class EchoClient {
             // ZANE MOD: raw request option now supported
             if (rawRequest.equals("")) {
                 // REGULAR REQUEST (NO raw request)
-                // ZANE MODIFIED: request argument CAN be missing a slash. The client fixes this for them.
-                if (requestPath.charAt(0) != '/') requestPath = '/' + requestPath;
                 request = String.format("GET %s", requestPath);
             } else {
                 // RAW REQUEST SELECTED

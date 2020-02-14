@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a5d2d452-2a5b-4a4f-b522-2d30506aae63" name="Default Changelist" comment="Merge branch 'master' of https://github.com/atotty/EchoServer&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EchoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EchoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EchoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/student_readme.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,8 +121,8 @@
       <item itemvalue="Application.EchoClient" />
       <item itemvalue="Application.EchoServer" />
       <item itemvalue="Application.EchoServer with args" />
-      <item itemvalue="Compound.Echo Server/Client" />
       <item itemvalue="Application.TestMethods" />
+      <item itemvalue="Compound.Echo Server/Client" />
     </list>
     <recent_temporary>
       <list>
