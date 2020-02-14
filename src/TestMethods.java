@@ -1,3 +1,6 @@
+// By the way, Austin, this class exists for the sole purpose of testing methods and other code I was having trouble
+// with. Feel free to disregard the contents of this file; it is unrelated to the EchoClient and EchoServer classes.
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
